@@ -23,14 +23,87 @@
         'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
         'Helvetica Neue', sans-serif;
     --shadow-color: 0deg 0% 0%;
+
+    --nav-bgr: aliceblue;
+    --nav-acnt: hsl(120, 55%, 49%);
 }
 
 body {
     padding: 0;
     margin: 0;
-    height: 100vh;
+    /* height: 100vh; */
+    font-family: var(--font);
 }
 
 .hide {
     display: none !important;
+}
+
+nav {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: clamp(17rem, 50vw, 30rem);
+    height: 4rem;
+
+    border-radius: 2rem;
+    background-color: var(--nav-bgr);
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+.nav-item {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: margin-bottom 0.2s ease-in-out;
+}
+
+.nav-item-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+
+.nav-item-icon>svg {
+    width: 100%;
+    height: 100%;
+    color: var(--nav-acnt);
+}
+
+.nav-item-text {
+    margin: 0;
+    transition: scale 0.2s ease-in-out;
+}
+
+.nav-item-expansion {
+    display: none;
+}
+
+@media (pointer: fine) {
+    .nav-item:hover {
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-item:hover .nav-item-icon {
+        scale: 1.2;
+    }
+
+    .nav-item:hover .nav-item-text {
+        scale: 1.2;
+    }
 }
